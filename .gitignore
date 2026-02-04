@@ -1,9 +1,6 @@
 # Dependencies
 node_modules/
 
-# Firebase config with API keys
-firebase-config.js
-
 # Environment files
 .env
 .env.local
