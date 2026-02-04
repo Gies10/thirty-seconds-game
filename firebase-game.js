@@ -515,6 +515,9 @@ async function submitScoreMultiplayer() {
     const nextTeam = currentTeam === 'red' ? 'blue' : 'red';
     const playerIndices = room.currentRound.playerIndex || { red: 0, blue: 0 };
     
+    // Increment the CURRENT team's index (they just finished their turn)
+    const updatedCurrentTeamIndex = (playerIndices[currentTeam] + 1);
+    
     // Get players in next team
     const teamPlayers = Object.entries(players)
         .filter(([_, p]) => p.team === nextTeam)
@@ -525,7 +528,8 @@ async function submitScoreMultiplayer() {
         return;
     }
 
-    const nextPlayerIndex = (playerIndices[nextTeam] + (nextTeam === currentTeam ? 0 : 1)) % teamPlayers.length;
+    // Use the next team's current index (they haven't gone yet this cycle)
+    const nextPlayerIndex = playerIndices[nextTeam] % teamPlayers.length;
     const nextExplainerId = teamPlayers[nextPlayerIndex];
 
     await database.ref(`rooms/${localState.roomCode}`).update({
@@ -537,8 +541,8 @@ async function submitScoreMultiplayer() {
             timerEnd: null,
             correctWords: [],
             playerIndex: {
-                ...playerIndices,
-                [nextTeam]: nextPlayerIndex
+                red: currentTeam === 'red' ? updatedCurrentTeamIndex : playerIndices.red,
+                blue: currentTeam === 'blue' ? updatedCurrentTeamIndex : playerIndices.blue
             }
         }
     });
