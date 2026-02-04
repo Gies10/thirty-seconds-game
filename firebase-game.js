@@ -1,15 +1,4 @@
-// Firebase Configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBNW0VrWPUoluOAbQDj7lY29M9z6QghePM",
-    authDomain: "thirty-seconds-game-d6677.firebaseapp.com",
-    databaseURL: "https://thirty-seconds-game-d6677-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "thirty-seconds-game-d6677",
-    storageBucket: "thirty-seconds-game-d6677.firebasestorage.app",
-    messagingSenderId: "636172598811",
-    appId: "1:636172598811:web:686d62ba0b9bca7ad542be",
-    measurementId: "G-M2B7F388G5"
-};
-
+// Firebase Configuration is loaded from firebase-config.js
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
