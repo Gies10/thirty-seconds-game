@@ -1,31 +1,21 @@
 Word1,Word2,Word3,Word4,Word5
-RPA,Process mining,Orchestration,Bot,Exception
-GenAI,Prompt engineering,Hallucination,Guardrails,Red-teaming
-Retrieval,Embeddings,Vector database,Reranking,Chunking
-Document understanding,OCR,Invoices,Three-way match,Reconciliation
-Human-in-the-loop,Escalation,Triage,Workqueue,SLA
-MLOps,Model registry,Drift,Monitoring,Rollback
-CI/CD,Blue-green,Canary,Pipeline,Versioning
-Explainability,SHAP,Feature importance,Transparency,Accountability
-Data governance,Lineage,Catalogue,Quality,Stewardship
-PII,Anonymisation,Tokenisation,Privacy,Consent
-Access control,Encryption,Secrets,Key management,Segregation
-API,Webhook,Integration,Middleware,Gateway
-Microservices,Containers,Kubernetes,Autoscaling,Observability
-Logging,Tracing,Metrics,Telemetry,Alerting
-Business rules,Decision table,DMN,Validation,Fallback
-Process map,Swimlane,SIPOC,Bottleneck,Throughput
-Value case,ROI,Payback,TCO,Benefits
-OKRs,KPIs,Baseline,Target,Dashboard
-Backlog,Prioritisation,Sprint,Retrospective,Stand-up
-Product owner,Scrum master,Architect,Engineer,Analyst
-Change control,CAB,Release,Feature toggle,Rollout
-Incident,Root cause,Runbook,Playbook,Post-mortem
-Testing,Unit,Integration,UAT,Performance
-Data lakehouse,Schema,ETL,ELT,Partitioning
-Forecasting,Anomaly detection,Classification,Regression,Clustering
-Optimisation,Heuristics,Constraints,Solver,Scenario
-Chatbot,Agent assist,Summarisation,Sentiment,Intent
-Knowledge base,Search,FAQ,Articles,Curation
-Compliance,Audit trail,Evidence,Controls,Policy
-Risk appetite,Heatmap,Mitigation,Assurance,Governance
+Snapshots,TMT,Competence Center,Yana,Deloitte University
+Edge,SAP,Dennis,Deloitte,Gideon
+Petra Tito,Digital Transformation,Stefan,VertexAI,Computer Vision
+Azure,Sjors,Olga,Senior Manager,DevOps
+Berber,HR Business Lead,Consumer,Agentic AI,Sohail
+Aïcha,Manager,Anshul,AIA,MLOps
+Capability Area,Gijs,Senior Consultant,Shuttle,DTTL
+Allard,NSE,Consultant,Lisa,MBMC
+Mik,ER&I,Teams,PwC,Floor
+KPMG,Jorg,RPA,Hidde,Digital Twin
+Headstart,Reinforcement Learning,Dario,Data Science,Daan
+Marion,SQL,Solaria,Data Governance,Rutger
+Lisette,Lunch & Learn,EY,Zakaria,NLP
+Partner,Spacewell,Jorik,Skitrip,Amir
+Databricks,Stan,People Leader,AWS,Iva
+Python,Louise,Rushil,GCP,Cabrioledge
+GenAI,Outlook,DPN,Joost,SWIFT
+Copilot,Inge,KX,Melle,Data Analytics
+Analyst,Floris,Sustainability,Laurens,T&T
+Ameen,Director,Machine Learning,Sabrina,Commute
