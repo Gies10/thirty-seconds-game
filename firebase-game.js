@@ -353,27 +353,34 @@ function showPlayingScreen(room) {
 
     const isExplainer = currentRound.explainerId === localState.playerId;
     
-    // Debug logging
-    console.log('Current explainerId:', currentRound.explainerId);
-    console.log('My playerId:', localState.playerId);
-    console.log('Am I explainer?', isExplainer);
-    console.log('Players in room:', Object.keys(players));
-    
     document.getElementById('start-round-mp-btn').style.display = isExplainer ? 'block' : 'none';
     document.getElementById('waiting-for-explainer').style.display = isExplainer ? 'none' : 'block';
     document.getElementById('waiting-for-explainer').innerHTML = `
         <p>⏳ Waiting for <strong>${explainer ? explainer.name : 'explainer'}</strong> to start the round...</p>
-        <p class="muted" style="font-size: 0.8rem; margin-top: 10px;">Debug: You are ${localState.playerName} (${isExplainer ? 'EXPLAINER' : 'waiting'})</p>
     `;
 
     showScreen('mp-game-screen');
 }
 
 async function startRoundMultiplayer() {
+    // Check if cards are loaded
+    if (!localState.baseCards || localState.baseCards.length === 0) {
+        console.log('Cards not loaded, loading now...');
+        localState.baseCards = await loadCardsFromCSV();
+    }
+    
+    if (localState.baseCards.length === 0) {
+        alert('Error: Could not load cards. Please refresh the page.');
+        return;
+    }
+
     // Get a random card
     const roomSnapshot = await database.ref('rooms/' + localState.roomCode).once('value');
     const room = roomSnapshot.val();
-    const usedIndices = room.cards?.used || [];
+    
+    // Firebase push() stores as object, convert to array of values
+    const usedIndicesObj = room.cards?.used || {};
+    const usedIndices = Object.values(usedIndicesObj);
     
     let availableIndices = [];
     for (let i = 0; i < localState.baseCards.length; i++) {
@@ -385,7 +392,7 @@ async function startRoundMultiplayer() {
     if (availableIndices.length === 0) {
         // Reset used cards
         availableIndices = Array.from({ length: localState.baseCards.length }, (_, i) => i);
-        await database.ref(`rooms/${localState.roomCode}/cards/used`).set([]);
+        await database.ref(`rooms/${localState.roomCode}/cards/used`).set({});
     }
 
     const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
@@ -401,8 +408,8 @@ async function startRoundMultiplayer() {
         'currentRound/correctWords': []
     });
 
-    // Add used card index
-    await database.ref(`rooms/${localState.roomCode}/cards/used`).push(randomIndex);
+    // Add used card index - use set with the index as key to avoid duplicates
+    await database.ref(`rooms/${localState.roomCode}/cards/used/${randomIndex}`).set(randomIndex);
 }
 
 let countdownInterval;
