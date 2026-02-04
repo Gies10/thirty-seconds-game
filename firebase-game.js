@@ -352,10 +352,18 @@ function showPlayingScreen(room) {
     document.getElementById('mp-current-explainer').textContent = explainer ? explainer.name : 'Unknown';
 
     const isExplainer = currentRound.explainerId === localState.playerId;
+    
+    // Debug logging
+    console.log('Current explainerId:', currentRound.explainerId);
+    console.log('My playerId:', localState.playerId);
+    console.log('Am I explainer?', isExplainer);
+    console.log('Players in room:', Object.keys(players));
+    
     document.getElementById('start-round-mp-btn').style.display = isExplainer ? 'block' : 'none';
     document.getElementById('waiting-for-explainer').style.display = isExplainer ? 'none' : 'block';
     document.getElementById('waiting-for-explainer').innerHTML = `
         <p>⏳ Waiting for <strong>${explainer ? explainer.name : 'explainer'}</strong> to start the round...</p>
+        <p class="muted" style="font-size: 0.8rem; margin-top: 10px;">Debug: You are ${localState.playerName} (${isExplainer ? 'EXPLAINER' : 'waiting'})</p>
     `;
 
     showScreen('mp-game-screen');
