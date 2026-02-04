@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirty Seconds Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <h1>🎲 Thirty Seconds</h1>
+            <p class="subtitle">The Quick Thinking, Fast Talking Game!</p>
+            <div class="button-group">
+                <button onclick="showScreen('create-game-screen')">Create New Game</button>
+                <button onclick="showScreen('manage-cards-screen')" class="secondary">Manage Cards</button>
+            </div>
+        </div>
+
+        <!-- Manage Cards Screen -->
+        <div id="manage-cards-screen" class="screen">
+            <h2>📝 Manage Cards</h2>
+            <p>Each card has 5 words. Cards are loaded from <strong>cards.csv</strong> + your added cards!</p>
+            
+            <div class="card-input-section">
+                <h3>Add New Card</h3>
+                <div class="word-inputs">
+                    <input type="text" id="word1" placeholder="Word 1" maxlength="50">
+                    <input type="text" id="word2" placeholder="Word 2" maxlength="50">
+                    <input type="text" id="word3" placeholder="Word 3" maxlength="50">
+                    <input type="text" id="word4" placeholder="Word 4" maxlength="50">
+                    <input type="text" id="word5" placeholder="Word 5" maxlength="50">
+                </div>
+                <button onclick="addCard()">Add Card</button>
+            </div>
+
+            <div class="cards-list-section">
+                <h3>Your Cards (<span id="card-count">0</span>)</h3>
+                <div id="cards-list"></div>
+            </div>
+
+            <div class="button-group">
+                <button onclick="showScreen('home-screen')" class="secondary">Back to Home</button>
+                <button onclick="loadBaseCardsFromCSV()" class="secondary">🔄 Reload CSV</button>
+                <button onclick="clearAllCards()" class="danger">Clear Added Cards</button>
+            </div>
+        </div>
+
+        <!-- Create Game Screen -->
+        <div id="create-game-screen" class="screen">
+            <h2>🎮 Create New Game</h2>
+            
+            <div class="game-setup">
+                <div class="team-setup">
+                    <h3>🔴 Team Red</h3>
+                    <div id="team-red-players"></div>
+                    <div class="add-player">
+                        <input type="text" id="red-player-name" placeholder="Player name">
+                        <button onclick="addPlayer('red')">Add</button>
+                    </div>
+                </div>
+
+                <div class="team-setup">
+                    <h3>🔵 Team Blue</h3>
+                    <div id="team-blue-players"></div>
+                    <div class="add-player">
+                        <input type="text" id="blue-player-name" placeholder="Player name">
+                        <button onclick="addPlayer('blue')">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-options">
+                <label>
+                    Winning Score:
+                    <input type="number" id="winning-score" value="30" min="10" max="50">
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button onclick="showScreen('home-screen')" class="secondary">Back</button>
+                <button onclick="startGame()">Start Game!</button>
+            </div>
+        </div>
+
+        <!-- Game Board Screen -->
+        <div id="game-board-screen" class="screen">
+            <h2>🎲 Game Board</h2>
+            
+            <div class="scoreboard">
+                <div class="team-score red">
+                    <h3>🔴 Team Red</h3>
+                    <span id="red-score">0</span>
+                </div>
+                <div class="team-score blue">
+                    <h3>🔵 Team Blue</h3>
+                    <span id="blue-score">0</span>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <canvas id="game-board" width="800" height="400"></canvas>
+            </div>
+
+            <div class="current-turn">
+                <p>Current Turn: <span id="current-team-name"></span></p>
+                <p>Describer: <span id="current-player-name"></span></p>
+            </div>
+
+            <button onclick="startRound()" id="start-round-btn">Start Round</button>
+        </div>
+
+        <!-- Round Screen -->
+        <div id="round-screen" class="screen">
+            <div class="timer-container">
+                <div id="timer">30</div>
+                <div class="timer-label">seconds</div>
+            </div>
+
+            <div class="current-card">
+                <h3>Your Words:</h3>
+                <div id="words-to-describe"></div>
+            </div>
+
+            <p class="describer-note">Describe these words to your team! No saying the word or parts of it!</p>
+        </div>
+
+        <!-- Scoring Screen -->
+        <div id="scoring-screen" class="screen">
+            <h2>⏱️ Time's Up!</h2>
+            <p>Click the words your team guessed correctly:</p>
+
+            <div id="scoring-words"></div>
+
+            <div class="score-summary">
+                <p>Words correct: <span id="words-correct">0</span></p>
+            </div>
+
+            <button onclick="submitScore()">Submit & Continue</button>
+        </div>
+
+        <!-- Winner Screen -->
+        <div id="winner-screen" class="screen">
+            <h1>🏆 Game Over!</h1>
+            <h2 id="winner-announcement"></h2>
+            
+            <div class="final-scores">
+                <div class="final-score red">
+                    <h3>🔴 Team Red</h3>
+                    <span id="final-red-score">0</span>
+                </div>
+                <div class="final-score blue">
+                    <h3>🔵 Team Blue</h3>
+                    <span id="final-blue-score">0</span>
+                </div>
+            </div>
+
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

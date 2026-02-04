@@ -1,0 +1,31 @@
+Word1,Word2,Word3,Word4,Word5
+RPA,Process mining,Orchestration,Bot,Exception
+GenAI,Prompt engineering,Hallucination,Guardrails,Red-teaming
+Retrieval,Embeddings,Vector database,Reranking,Chunking
+Document understanding,OCR,Invoices,Three-way match,Reconciliation
+Human-in-the-loop,Escalation,Triage,Workqueue,SLA
+MLOps,Model registry,Drift,Monitoring,Rollback
+CI/CD,Blue-green,Canary,Pipeline,Versioning
+Explainability,SHAP,Feature importance,Transparency,Accountability
+Data governance,Lineage,Catalogue,Quality,Stewardship
+PII,Anonymisation,Tokenisation,Privacy,Consent
+Access control,Encryption,Secrets,Key management,Segregation
+API,Webhook,Integration,Middleware,Gateway
+Microservices,Containers,Kubernetes,Autoscaling,Observability
+Logging,Tracing,Metrics,Telemetry,Alerting
+Business rules,Decision table,DMN,Validation,Fallback
+Process map,Swimlane,SIPOC,Bottleneck,Throughput
+Value case,ROI,Payback,TCO,Benefits
+OKRs,KPIs,Baseline,Target,Dashboard
+Backlog,Prioritisation,Sprint,Retrospective,Stand-up
+Product owner,Scrum master,Architect,Engineer,Analyst
+Change control,CAB,Release,Feature toggle,Rollout
+Incident,Root cause,Runbook,Playbook,Post-mortem
+Testing,Unit,Integration,UAT,Performance
+Data lakehouse,Schema,ETL,ELT,Partitioning
+Forecasting,Anomaly detection,Classification,Regression,Clustering
+Optimisation,Heuristics,Constraints,Solver,Scenario
+Chatbot,Agent assist,Summarisation,Sentiment,Intent
+Knowledge base,Search,FAQ,Articles,Curation
+Compliance,Audit trail,Evidence,Controls,Policy
+Risk appetite,Heatmap,Mitigation,Assurance,Governance

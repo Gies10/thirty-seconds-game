@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #fff;
+}
+
+#app {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e94560;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #e94560, #c23a51);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+}
+
+button.secondary {
+    background: linear-gradient(135deg, #4a4a6a, #3a3a5a);
+}
+
+button.secondary:hover {
+    box-shadow: 0 5px 20px rgba(74, 74, 106, 0.4);
+}
+
+button.danger {
+    background: linear-gradient(135deg, #ff4757, #c23a51);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Card Management */
+.card-input-section {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.word-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.word-inputs input {
+    padding: 12px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+.word-inputs input:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+.word-inputs input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.cards-list-section {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#cards-list {
+    display: grid;
+    gap: 10px;
+}
+
+.card-item {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-words {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card-words span {
+    background: rgba(233, 69, 96, 0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.delete-card {
+    background: transparent;
+    color: #ff4757;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+}
+
+/* Base card vs user card styling */
+.card-item.base-card {
+    border-left: 3px solid #2ed573;
+}
+
+.card-item.base-card .card-words span {
+    background: rgba(46, 213, 115, 0.3);
+}
+
+.card-item.user-card {
+    border-left: 3px solid #ffa502;
+}
+
+.card-item.user-card .card-words span {
+    background: rgba(255, 165, 2, 0.3);
+}
+
+.card-badge {
+    background: rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.cards-section {
+    margin-bottom: 20px;
+}
+
+/* Game Setup */
+.game-setup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .game-setup {
+        grid-template-columns: 1fr;
+    }
+}
+
+.team-setup {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.team-setup h3 {
+    text-align: center;
+}
+
+.add-player {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.add-player input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.add-player input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.add-player button {
+    padding: 10px 20px;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.remove-player {
+    background: transparent;
+    color: #ff4757;
+    padding: 2px 8px;
+    font-size: 1rem;
+}
+
+.game-options {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-options label {
+    font-size: 1.1rem;
+}
+
+.game-options input {
+    width: 80px;
+    padding: 8px;
+    margin-left: 10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Game Board */
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.team-score {
+    text-align: center;
+    padding: 20px 40px;
+    border-radius: 15px;
+    min-width: 150px;
+}
+
+.team-score.red {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.3), rgba(194, 58, 81, 0.3));
+    border: 2px solid #e94560;
+}
+
+.team-score.blue {
+    background: linear-gradient(135deg, rgba(69, 123, 233, 0.3), rgba(58, 100, 194, 0.3));
+    border: 2px solid #457be9;
+}
+
+.team-score span {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    overflow-x: auto;
+}
+
+#game-board {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+.current-turn {
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.current-turn p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.current-turn span {
+    font-weight: bold;
+    color: #e94560;
+}
+
+#start-round-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 20px 50px;
+    font-size: 1.3rem;
+}
+
+/* Round Screen */
+.timer-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#timer {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #e94560;
+    text-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.timer-label {
+    font-size: 1.5rem;
+    color: #aaa;
+}
+
+.current-card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#words-to-describe {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.word-item {
+    background: linear-gradient(135deg, #e94560, #c23a51);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.describer-note {
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Scoring Screen */
+#scoring-words {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.scoring-word {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.scoring-word:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.scoring-word.correct {
+    background: rgba(46, 213, 115, 0.3);
+    border-color: #2ed573;
+}
+
+.score-summary {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.score-summary span {
+    font-weight: bold;
+    color: #2ed573;
+    font-size: 2rem;
+}
+
+#scoring-screen button {
+    display: block;
+    margin: 0 auto;
+    padding: 20px 50px;
+}
+
+/* Winner Screen */
+#winner-screen {
+    text-align: center;
+}
+
+#winner-screen h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+#winner-announcement {
+    font-size: 2.5rem;
+    color: #2ed573;
+    margin-bottom: 40px;
+}
+
+.final-scores {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.final-score {
+    padding: 30px 50px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.final-score.red {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.3), rgba(194, 58, 81, 0.3));
+}
+
+.final-score.blue {
+    background: linear-gradient(135deg, rgba(69, 123, 233, 0.3), rgba(58, 100, 194, 0.3));
+}
+
+.final-score span {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+#winner-screen button {
+    padding: 20px 60px;
+    font-size: 1.3rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e94560;
+    border-radius: 10px;
+}
