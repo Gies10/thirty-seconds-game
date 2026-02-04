@@ -1,0 +1,233 @@
+/* Multiplayer-specific styles */
+
+.multiplayer-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .multiplayer-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+.option-card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.option-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.option-card p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.option-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.option-card input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.option-card input:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+/* Room Code Display */
+.room-code-box {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(69, 123, 233, 0.2));
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.room-code-box h1 {
+    font-size: 4rem;
+    letter-spacing: 15px;
+    color: #fff;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.muted {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Lobby Layout */
+.lobby-content {
+    margin-bottom: 30px;
+}
+
+.unassigned-section {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.unassigned-section h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.teams-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.team-column {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.team-column.red {
+    border-left: 4px solid #e94560;
+}
+
+.team-column.blue {
+    border-left: 4px solid #457be9;
+}
+
+.team-column h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.player-lobby-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.team-assign-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-small {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+.btn-small.red {
+    background: #e94560;
+}
+
+.btn-small.blue {
+    background: #457be9;
+}
+
+/* Host Controls */
+#host-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.big-button {
+    padding: 20px 60px;
+    font-size: 1.4rem;
+}
+
+/* Waiting Box */
+.waiting-box {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Words container for non-explainer */
+.waiting-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.waiting-card h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.guess-prompt {
+    font-size: 1.3rem;
+    color: #2ed573;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Words list styling */
+.words-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Game options in lobby */
+.game-options {
+    margin-bottom: 20px;
+}
+
+.game-options label {
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.game-options input {
+    width: 80px;
+    padding: 8px;
+    margin-left: 10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .teams-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .room-code-box h1 {
+        font-size: 2.5rem;
+        letter-spacing: 10px;
+    }
+    
+    .player-lobby-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

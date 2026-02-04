@@ -83,6 +83,14 @@ button.secondary:hover {
     box-shadow: 0 5px 20px rgba(74, 74, 106, 0.4);
 }
 
+button.multiplayer-btn {
+    background: linear-gradient(135deg, #2ed573, #1e9c53);
+}
+
+button.multiplayer-btn:hover {
+    box-shadow: 0 5px 20px rgba(46, 213, 115, 0.4);
+}
+
 button.danger {
     background: linear-gradient(135deg, #ff4757, #c23a51);
 }
